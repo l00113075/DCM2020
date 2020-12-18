@@ -46,8 +46,6 @@ Networking Assignment (PowerShell) : Scripting the Deployment Pipeline
 .NOTES
    Filename:     NetworkTests.ps1
    Setting File: Settings.ini 
-
-Tasha test push 
 #>
 
 
@@ -84,14 +82,14 @@ function Network-Tests
     $checkOpenPortsArray = @()
 
     # Ports to check
-    $portList = $settings.PortsToValidate.Split(",") # Split the sitring into a an array
+    $portList = $settings.PortsToValidate.Split(",") # Split the string into an array
 
     # Start to write to the Log File. All output will be written in the Log File
     Start-Transcript -Path $settings.Get_Item("LogFile")
     }    Process
     {    #BSC DCM 2020, I need to send the list of $computerNames to the next part of the process (Foreach). 
     #Which command should I use?
-    #  Write-Output $computerNames  
+       Write-Output $computerNames 
     #  Write-Host $computerNames
     # Uncomment the correct one of the above choices!
 
@@ -383,5 +381,5 @@ function Check-OpenPorts
 }
 #endregion
 
-Tasha test push back 
+#Tasha few changes done 
 
