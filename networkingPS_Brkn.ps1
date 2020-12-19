@@ -89,7 +89,7 @@ function Network-Tests
     }    Process
     {    #BSC DCM 2020, I need to send the list of $computerNames to the next part of the process (Foreach). 
     #Which command should I use?
-       Write-Output $computerNames  
+       Write-Output $computerNames #writes to the pipeline 
     #  Write-Host $computerNames
     # Uncomment the correct one of the above choices!
 
@@ -290,7 +290,7 @@ function Get-NetworkInfo
 
     try
     {
-        $networkInfo = Test-NetConnection -InformationLevel Detailed -ComputerName $computerName 
+        $networkInfo = Test-NetConnection -InformationLevelf Detailed -ComputerName $computerName 
                 $networkInfoOutput = [ordered]@{
                     ComputerName=$networkInfo.ComputerName
                     RemoteAddress=$networkInfo.RemoteAddress
@@ -324,10 +324,11 @@ function Get-NetworkInfo
 #Region Check-OpenPorts
 <#
 .Synopsis
-   
+   Check-OpenPorts
 .DESCRIPTION
-   
-.PARAMETERS    
+   This fuction will check for openports 
+.PARAMETERS  
+  $ComputerName: A Valid Computer Name or IP Address 
 #>
 
 # BSc DCM - fix this
@@ -353,8 +354,6 @@ function Check-OpenPorts
         # We need an iterator here to go through all $ports in $PortList
         # Write in the single line of code to iterate through the port list
         {
-            
-            #BSc DCM 2020 - Fix this
             
             $portConnected = Test-NetConnection -InformationLeve "Detailed" -ComputerName $computerName -Ports $ports -ErrorAction SilentlyContinue
             # finish the above line of code using the Test-NetConnection command and then uncomment.
@@ -382,5 +381,5 @@ function Check-OpenPorts
 }
 #endregion
 
-Tasha test push back 
+#Tasha push done
 
